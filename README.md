@@ -1,21 +1,59 @@
-# [T2.1] MAQUETA CON APPBAR, IMÁGENES, TEXTO Y SCROLL
+# 1. [T2.2] MAQUETA CON APPBAR, IMÁGENES, TEXTO Y SCROLL
 
-Maquetación para la primera tarea del 2do parcial de FDM, en el que estamos
+Maquetación para la segunda tarea del 2do parcial de FDM, en el que estamos
 trabajando con Flutter. Hay que hacer la maquetación que nos dijo el profesor,
 la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
-- [[T2.1] MAQUETA CON APPBAR, IMÁGENES, TEXTO Y SCROLL](#t21-maqueta-con-appbar-imágenes-texto-y-scroll)
-  - [FECHA DE ENTREGA](#fecha-de-entrega)
-  - [LINTER](#linter)
-    - [CÓMO HACERLO FUNCIONAR](#cómo-hacerlo-funcionar)
-    - [ENLACES](#enlaces)
-  - [Getting Started](#getting-started)
+- [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
+- [1.2. ***PROBLEMA CON EL EMULADOR DE ANDROID***](#12-problema-con-el-emulador-de-android)
+  - [1.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA**](#121-pasos-para-la-solución-del-problema)
+- [1.3. **LINTER**](#13-linter)
+  - [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
+  - [1.3.2. **ENLACES**](#132-enlaces)
+- [1.4. *Getting Started <- Venía por default al crear el proyecto*](#14-getting-started---venía-por-default-al-crear-el-proyecto)
 
-## ***FECHA DE ENCARGO***
+## 1.1. ***FECHA DE ENCARGO***
 
 > Martes, 27 ABRIL 2021
 
-## **LINTER**
+## 1.2. ***PROBLEMA CON EL EMULADOR DE ANDROID***
+
+Me salió un mensaje cuando quise iniciar el emulador. Ya van varias veces que
+intento iniciarlo, pero me dice que no encuentra el `adb.exe` y que no se puede
+ejecutar, por lo que intento ejecutarlo de nuevo, y me dice que ya hay una
+instancia ejecutándolo.
+
+Después, me salió una imagen con un error:
+
+![adb.exe es obsoleto. Deberá ser actualizado.](SS_PROBLEMS/PROBLEM-ANDROID_EMULATOR_ADB.png "adb.exe es obsoleto. Deberá ser actualizado.")
+
+### 1.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**
+
+> > Encontré una solución en Stack Overflow, pero aún no sé si funcione. La tendré
+> > que probar. Por ahora, este es el enlace de dicha solución:
+> >
+> > - [ADB.exe is obsolete and has serious performance problems | Stack Overflow](https://stackoverflow.com/questions/51240223/adb-exe-is-obsolete-and-has-serious-performance-problems "ADB.exe is obsolete and has serious performance problems")
+> >
+> > La solución que por lo que veo me podría funcionar es la de: ***Kuya***
+>
+> Estos pasos se realizan desde Android Studio con el editor abierto, pero se
+> puede hacer desde la pantalla inicial. Solo hay que abrir el "***`SDK Manager`***"
+> en primera instancia, pero aquí se indica cómo abrirlo desde el editor como tal.
+>
+> 1. Presiona **dos veces shift para abrir el buscador de Android Studio**.
+> 2. Escribe: "***`SDK Manager`***"
+> 3. En los resultados que aparezcan da click en "***`SDK Manager`***".
+> 4. En la ventana que aparece da click en la segunda pestaña: "***`SDK Tools`***".
+>    - En esta pestaña verás que hay una actualización disponible para los "***`SDK Build-Tools`***" en la primera línea.
+> 5. Palomea (check) el campo "***`Show Package Details`***" en la esquina inferior derecha.
+> 6. Desplázate hasta el último item con el nombre de "***`SDK Build-Tools`***" y palomea el campo.
+> 7. Da click en "**`Apply`**".
+> 8. En el cuadro de diálogo que se te muestre, da click en "**`OK`**".
+> 9. Cuando el instalador termine, da click en "**`Finish`**".
+> 10. Uncheck (quita el palomeado) el campo de "***`Show Package Details`***" y revisa que en el campo "***`Android SDK Build-Tools`***" (primera línea) indique que no hay una actualización disponible, es decir, que diga "**`Installed`**".
+> 11. Da click en "**`OK`**" para cerrar el "***`SDK Manager`***".
+
+## 1.3. **LINTER**
 
 Yo utilicé el siguiente linter:
 
@@ -30,7 +68,7 @@ Yo utilicé el siguiente linter:
 > [`package:pedantic`](https://github.com/google/pedantic
 > "https://github.com/google/pedantic") for those who prefer stricter rules".
 
-### **CÓMO HACERLO FUNCIONAR**
+### 1.3.1. **CÓMO HACERLO FUNCIONAR**
 
 1. Hay que **agregarlo a 2 archivos** en primera instancia:
 
@@ -130,7 +168,7 @@ Yo utilicé el siguiente linter:
     reglas que hayas establecido. Si no modificaste las reglas, entonces te
     mostrará los errores dependiendo de las reglas del paquete base.
 
-### **ENLACES**
+### 1.3.2. **ENLACES**
 
 > - [Lint for Dart/Flutter <- El Linter que yo utilicé]
 > - [Linter for Dart: Supported Lint Rules](https://dart-lang.github.io/linter/lints/index.html "Supported Dart Lint Rules")
@@ -138,7 +176,7 @@ Yo utilicé el siguiente linter:
 
 [Lint for Dart/Flutter <- El Linter que yo utilicé]: <https://pub.dev/packages/lint> "El Linter que yo utilicé"
 
-## *Getting Started <- Venía por default al crear el proyecto*
+## 1.4. *Getting Started <- Venía por default al crear el proyecto*
 
 This project is a starting point for a Flutter application.
 
