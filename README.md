@@ -4,17 +4,17 @@ Maquetación para la segunda tarea del 2do parcial de FDM, en el que estamos
 trabajando con Flutter. Hay que hacer la maquetación que nos dijo el profesor,
 la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
-- [1. [T2.2] MAQUETA CON APPBAR, IMÁGENES, TEXTO Y SCROLL](#1-t22-maqueta-con-appbar-imágenes-texto-y-scroll)
-  - [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
-  - [1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#12-problemas-con-el-emulador-de-android)
-    - [1.2.1. ***UNABLE TO START `adb server`***](#121-unable-to-start-adb-server)
-      - [1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW**](#1211-solución-de-stack-overflow)
-    - [1.2.2. ***PROBLEMA CON `adb.exe`***](#122-problema-con-adbexe)
-      - [1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1221-pasos-para-la-solución-del-problema-de-stack-oveflow)
-  - [1.3. **LINTER**](#13-linter)
-    - [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
-    - [1.3.2. **ENLACES**](#132-enlaces)
-  - [1.4. *Getting Started <- Venía por default al crear el proyecto*](#14-getting-started---venía-por-default-al-crear-el-proyecto)
+- [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
+- [1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#12-problemas-con-el-emulador-de-android)
+  - [1.2.1. ***UNABLE TO START `adb server`***](#121-unable-to-start-adb-server)
+    - [1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1211-solución-de-stack-overflow---funcionó-correctamente)
+      - [1.2.1.1.1. FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR](#12111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
+  - [1.2.2. ***PROBLEMA CON `adb.exe`***](#122-problema-con-adbexe)
+    - [1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1221-pasos-para-la-solución-del-problema-de-stack-oveflow)
+- [1.3. **LINTER**](#13-linter)
+  - [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
+  - [1.3.2. **ENLACES**](#132-enlaces)
+- [1.4. *Getting Started <- Venía por default al crear el proyecto*](#14-getting-started---venía-por-default-al-crear-el-proyecto)
 
 ## 1.1. ***FECHA DE ENCARGO***
 
@@ -33,7 +33,7 @@ Me encontré con el siguiente problema:
 
 ![Unable to create Debug Bridge: Unable to start adb server](SS_PROBLEMS/AndroidEmulatorProblem_UnableToCreate-Debug-Bridge.png "Unable to create Debug Bridge: Unable to start adb server")
 
-#### 1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW**
+#### 1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*
 
 [Respuesta de "`Letsintegreat`": Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow](https://stackoverflow.com/a/49345049/13562806 "Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow")
 
@@ -57,7 +57,14 @@ Me encontré con el siguiente problema:
 
     ![Ejecución del comando](SS_PROBLEMS/Android_SDK-PREVIEW-LICENSE.png "Ejecución del comando")
 
+    ![`adb.exe` CORRIEDO CORRECTAMENTE DESDE LA TERMINAL](SS_PROBLEMS/adb_exe_start-server_manually_working.png "adb.exe CORRIEDO CORRECTAMENTE DESDE LA TERMINAL")
+
 5. **Vuelve a abrir *Android Studio*.**
+
+##### 1.2.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**
+
+![EMULADOR CARGANDO | Pixel 2 - Android 8.1 (Oreo)](SS_PROGRESS/ANDROID-EMULATOR_FIRST-TIME-WORKING_Sa_May_1st_2021.png "EMULADOR CARGANDO | Pixel 2 - Android 8.1 (Oreo)")
+![EMULADOR CORRIENDO POR PRIMERA VEZ | Pixel 2 - Android 8.1 (Oreo)](SS_PROGRESS/ANDROID-EMULATOR_FIRST-TIME-WORKING_2_Sa_May_1st_2021.png "EMULADOR CORRIENDO POR PRIMERA VEZ | Pixel 2 - Android 8.1 (Oreo)")
 
 ### 1.2.2. ***PROBLEMA CON `adb.exe`***
 
