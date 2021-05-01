@@ -4,19 +4,62 @@ Maquetación para la segunda tarea del 2do parcial de FDM, en el que estamos
 trabajando con Flutter. Hay que hacer la maquetación que nos dijo el profesor,
 la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
-- [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
-- [1.2. ***PROBLEMA CON EL EMULADOR DE ANDROID***](#12-problema-con-el-emulador-de-android)
-  - [1.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA**](#121-pasos-para-la-solución-del-problema)
-- [1.3. **LINTER**](#13-linter)
-  - [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
-  - [1.3.2. **ENLACES**](#132-enlaces)
-- [1.4. *Getting Started <- Venía por default al crear el proyecto*](#14-getting-started---venía-por-default-al-crear-el-proyecto)
+- [1. [T2.2] MAQUETA CON APPBAR, IMÁGENES, TEXTO Y SCROLL](#1-t22-maqueta-con-appbar-imágenes-texto-y-scroll)
+  - [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
+  - [1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#12-problemas-con-el-emulador-de-android)
+    - [1.2.1. ***UNABLE TO START `adb server`***](#121-unable-to-start-adb-server)
+      - [1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW**](#1211-solución-de-stack-overflow)
+    - [1.2.2. ***PROBLEMA CON `adb.exe`***](#122-problema-con-adbexe)
+      - [1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1221-pasos-para-la-solución-del-problema-de-stack-oveflow)
+  - [1.3. **LINTER**](#13-linter)
+    - [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
+    - [1.3.2. **ENLACES**](#132-enlaces)
+  - [1.4. *Getting Started <- Venía por default al crear el proyecto*](#14-getting-started---venía-por-default-al-crear-el-proyecto)
 
 ## 1.1. ***FECHA DE ENCARGO***
 
 > Martes, 27 ABRIL 2021
 
-## 1.2. ***PROBLEMA CON EL EMULADOR DE ANDROID***
+## 1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**
+
+### 1.2.1. ***UNABLE TO START `adb server`***
+
+Me encontré con el siguiente problema:
+
+> java.lang.RuntimeException: Unable to create Debug Bridge: Unable to start adb
+> server: Process did not terminate within specified timeout, killing it
+> 'C:\Users\games_000.ASHJAC\AppData\Local\Android\Sdk\platform-tools\adb.exe start-server'
+> failed -- run manually if necessary
+
+![Unable to create Debug Bridge: Unable to start adb server](SS_PROBLEMS/AndroidEmulatorProblem_UnableToCreate-Debug-Bridge.png "Unable to create Debug Bridge: Unable to start adb server")
+
+#### 1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW**
+
+[Respuesta de "`Letsintegreat`": Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow](https://stackoverflow.com/a/49345049/13562806 "Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow")
+
+1. Cierra Android Studio
+2. Abre una terminal
+3. Navega al directorio de `platform-tools`.
+
+    1. En la mayoría de las ocasiones se encuentra en el siguiente directorio:
+
+        > C:\Users\[user]\AppData\Local\Android\android-sdk\platform-tools
+
+    2. En mi computadora se encuentra en el siguiente directorio:
+
+        > C:\Users\games_000.ASHJAC\AppData\Local\Android\Sdk\platform-tools
+
+4. Escribe el siguiente comando y presiona enter.
+
+    > ```properties
+    > adb.exe start-server
+    > ```
+
+    ![Ejecución del comando](SS_PROBLEMS/Android_SDK-PREVIEW-LICENSE.png "Ejecución del comando")
+
+5. **Vuelve a abrir *Android Studio*.**
+
+### 1.2.2. ***PROBLEMA CON `adb.exe`***
 
 Me salió un mensaje cuando quise iniciar el emulador. Ya van varias veces que
 intento iniciarlo, pero me dice que no encuentra el `adb.exe` y que no se puede
@@ -27,7 +70,7 @@ Después, me salió una imagen con un error:
 
 ![adb.exe es obsoleto. Deberá ser actualizado.](SS_PROBLEMS/PROBLEM-ANDROID_EMULATOR_ADB.png "adb.exe es obsoleto. Deberá ser actualizado.")
 
-### 1.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**
+#### 1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**
 
 > > Encontré una solución en Stack Overflow, pero aún no sé si funcione. La tendré
 > > que probar. Por ahora, este es el enlace de dicha solución:
