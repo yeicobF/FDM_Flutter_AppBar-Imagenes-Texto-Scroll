@@ -8,13 +8,14 @@ la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 - [1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#12-problemas-con-el-emulador-de-android)
   - [1.2.1. ***UNABLE TO START `adb server`***](#121-unable-to-start-adb-server)
     - [1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1211-solución-de-stack-overflow---funcionó-correctamente)
-      - [1.2.1.1.1. FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR](#12111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
+      - [1.2.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**](#12111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
   - [1.2.2. ***PROBLEMA CON `adb.exe`***](#122-problema-con-adbexe)
     - [1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1221-pasos-para-la-solución-del-problema-de-stack-oveflow)
 - [1.3. **LINTER**](#13-linter)
   - [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
   - [1.3.2. **ENLACES**](#132-enlaces)
-- [1.4. *Getting Started <- Venía por default al crear el proyecto*](#14-getting-started---venía-por-default-al-crear-el-proyecto)
+- [1.4. FUENTES DE APOYO VARIAS](#14-fuentes-de-apoyo-varias)
+- [1.5. *Getting Started <- Venía por default al crear el proyecto*](#15-getting-started---venía-por-default-al-crear-el-proyecto)
 
 ## 1.1. ***FECHA DE ENCARGO***
 
@@ -226,7 +227,13 @@ Yo utilicé el siguiente linter:
 
 [Lint for Dart/Flutter <- El Linter que yo utilicé]: <https://pub.dev/packages/lint> "El Linter que yo utilicé"
 
-## 1.4. *Getting Started <- Venía por default al crear el proyecto*
+## 1.4. FUENTES DE APOYO VARIAS
+
+- [VIDEO YouTube | Init | "Curso de Flutter Desde Cero App Clon de Netflix" | 19 jun. 2020](https://www.youtube.com/watch?v=vX_iJVLKU6w&t=3885s&ab_channel=Init "VIDEO YouTube | Init | \"Curso de Flutter Desde Cero App Clon de Netflix\"")
+- [VIDEO YouTube | Johannes Milke | "Flutter Tutorial - Safe Area VS AppBar - Android & iOS" | 31 mar. 2021](https://www.youtube.com/watch?v=4O16fHaJc7E&list=PLg8w9DGA17RsDtJYQY2MRvl8mqIn7IWIq&index=3&ab_channel=JohannesMilke "VIDEO YouTube | Johannes Milke | \"Flutter Tutorial - Safe Area VS AppBar - Android & iOS\"")
+- [VIDEO YouTube | EXPLICACIÓN  BuildContext context | Coding with Glove | Understanding BuildContext in Flutter | 10 ene. 2020](https://www.youtube.com/watch?v=MFNe7hdOCVs&list=PLg8w9DGA17RsDtJYQY2MRvl8mqIn7IWIq&index=6&ab_channel=CodingwithGlove "VIDEO YouTube | EXPLICACIÓN  BuildContext context")
+
+## 1.5. *Getting Started <- Venía por default al crear el proyecto*
 
 This project is a starting point for a Flutter application.
 
