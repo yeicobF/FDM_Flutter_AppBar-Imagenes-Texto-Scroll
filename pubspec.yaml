@@ -1,5 +1,9 @@
 name: maqueta_imagenes_texto_scroll
-description: Maquetación para la primera tarea del 2do parcial de FDM, en el que estamos trabajando con Flutter. Hay que hacer la maquetación que nos dijo el profesor, la cual deberá contener`:` Imágenes, texto y un scroll con diversos elementos. Para entregar el Jueves, 29 de abril del 2021.
+description:
+  Maquetación para la primera tarea del 2do parcial de FDM, en el que estamos
+  trabajando con Flutter. Hay que hacer la maquetación que nos dijo el
+  profesor, la cual deberá contener`:` Imágenes, texto y un scroll con diversos
+  elementos. Para entregar el Jueves, 29 de abril del 2021.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

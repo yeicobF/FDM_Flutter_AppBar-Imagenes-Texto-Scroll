@@ -6,14 +6,14 @@ la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
 - [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
 - [1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#12-problemas-con-el-emulador-de-android)
-  - [1.2.1. ***UNABLE TO START `adb server`***](#121-unable-to-start-adb-server)
-    - [1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1211-solución-de-stack-overflow---funcionó-correctamente)
-      - [1.2.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**](#12111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
-  - [1.2.2. ***PROBLEMA CON `adb.exe`***](#122-problema-con-adbexe)
-    - [1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1221-pasos-para-la-solución-del-problema-de-stack-oveflow)
+- [1.2.1. ***UNABLE TO START `adb server`***](#121-unable-to-start-adb-server)
+  - [1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1211-solución-de-stack-overflow---funcionó-correctamente)
+    - [1.2.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**](#12111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
+- [1.2.2. ***PROBLEMA CON `adb.exe`***](#122-problema-con-adbexe)
+  - [1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1221-pasos-para-la-solución-del-problema-de-stack-oveflow)
 - [1.3. **LINTER**](#13-linter)
-  - [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
-  - [1.3.2. **ENLACES**](#132-enlaces)
+- [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
+- [1.3.2. **ENLACES**](#132-enlaces)
 - [1.4. FUENTES DE APOYO VARIAS](#14-fuentes-de-apoyo-varias)
 - [1.5. *Getting Started <- Venía por default al crear el proyecto*](#15-getting-started---venía-por-default-al-crear-el-proyecto)
 
@@ -206,18 +206,55 @@ Yo utilicé el siguiente linter:
         > >     lines_longer_than_80_chars: true
         > > ```
 
-2. Finalmente, hay que **ejecutar el siguiente comando** para poder obtener los
-   paquetes que hemos especificado.
+2. Finalmente, hay que seguir los siguientes pasos para poder obtener los
+   paquetes que hemos especificado y hacer funcionar al linter.
     <!-- https://stackoverflow.com/questions/20303826/highlight-bash-shell-code-in-markdown-files -->
 
-    ```properties
-    flutter pub get
-    ```
+    - **En Visual Studio Code**:
 
-    Después de ejecutarlo, si todo sale bien, el paquete estará activo y
-    mostrará los errores o warnings que tenga tu programa dependiendo de las
-    reglas que hayas establecido. Si no modificaste las reglas, entonces te
-    mostrará los errores dependiendo de las reglas del paquete base.
+      - Colócate en el archivo [pubspec.yaml](pubspec.yaml). Hay dos opciones
+        para hacer funcionar al linter.
+
+          1. Presiona `F1` o `Ctrl + Shift + P`. Se abrirá una barra en la parte
+             superior de la pantalla en donde podrás escribir instrucciones.
+
+             - Escribe el siguiente comando:
+
+                ```properties
+                Pub: Get Packages
+                ```
+
+          2. Guarda el archivo de la forma que tu prefieras. En mi caso
+             simplemente  presiono `Ctrl + S`. Visual Studio Code ejecutará el
+             mismo comando de la opción 1.
+
+        > **NOTA:** Con cualquiera de las 2 opciones que lo hagas, se ejecutará
+        > el mismo comando:
+        >
+        > ```properties
+        > flutter pub get
+        > ```
+
+    - **En la terminal:**
+
+      - Escribe el siguiente comando para obtener los paquetes:
+
+        ```properties
+        flutter pub get
+        ```
+
+      - Escribe el siguiente comando para hacer funcionar el linter y que te
+        muestre los errores en la terminal. Esto no te mostrará los
+        errores/warnings en el editor de texto.
+
+        ```properties
+        dart analyze
+        ```
+
+    Después de ejecutar estos comandos, si todo sale bien, el paquete estará
+    activo y mostrará los errores o warnings que tenga tu programa dependiendo
+    de las reglas que hayas establecido. Si no modificaste las reglas, entonces
+    te mostrará los errores dependiendo de las reglas del paquete base.
 
 ### 1.3.2. **ENLACES**
 
