@@ -5,25 +5,47 @@ trabajando con Flutter. Hay que hacer la maquetación que nos dijo el profesor,
 la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
 - [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
-- [1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#12-problemas-con-el-emulador-de-android)
-- [1.2.1. ***UNABLE TO START `adb server`***](#121-unable-to-start-adb-server)
-  - [1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1211-solución-de-stack-overflow---funcionó-correctamente)
-    - [1.2.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**](#12111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
-- [1.2.2. ***PROBLEMA CON `adb.exe`***](#122-problema-con-adbexe)
-  - [1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1221-pasos-para-la-solución-del-problema-de-stack-oveflow)
-- [1.3. **LINTER**](#13-linter)
-- [1.3.1. **CÓMO HACERLO FUNCIONAR**](#131-cómo-hacerlo-funcionar)
-- [1.3.2. **ENLACES**](#132-enlaces)
-- [1.4. FUENTES DE APOYO VARIAS](#14-fuentes-de-apoyo-varias)
-- [1.5. *Getting Started <- Venía por default al crear el proyecto*](#15-getting-started---venía-por-default-al-crear-el-proyecto)
+- [1.2. VARIABLES DE USUARIO](#12-variables-de-usuario)
+- [1.3. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#13-problemas-con-el-emulador-de-android)
+  - [1.3.1. ***UNABLE TO START `adb server`***](#131-unable-to-start-adb-server)
+    - [1.3.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1311-solución-de-stack-overflow---funcionó-correctamente)
+      - [1.3.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**](#13111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
+  - [1.3.2. ***PROBLEMA CON `adb.exe`***](#132-problema-con-adbexe)
+    - [1.3.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1321-pasos-para-la-solución-del-problema-de-stack-oveflow)
+- [1.4. **LINTER**](#14-linter)
+  - [1.4.1. **CÓMO HACERLO FUNCIONAR**](#141-cómo-hacerlo-funcionar)
+  - [1.4.2. **ENLACES**](#142-enlaces)
+- [1.5. FUENTES DE APOYO VARIAS](#15-fuentes-de-apoyo-varias)
+- [1.6. *Getting Started <- Venía por default al crear el proyecto*](#16-getting-started---venía-por-default-al-crear-el-proyecto)
 
 ## 1.1. ***FECHA DE ENCARGO***
 
 > Martes, 27 ABRIL 2021
 
-## 1.2. **PROBLEMAS CON EL EMULADOR DE ANDROID**
+## 1.2. **VARIABLES DE USUARIO**
 
-### 1.2.1. ***UNABLE TO START `adb server`***
+- ### ***ANDROID_HOME***
+
+  Había establecido esta variable de usuario, pero según la [documentación
+  oficial de Android Studio], esta variable ya no está disponible:
+
+  > "*ANDROID_HOME, que también dirige al directorio de instalación del SDK,
+  > dejó de estar disponible*".
+
+- ### **VARIABLES QUE SÍ PUEDO ESTABLECER**
+
+  Según la [documentación oficial de Android Studio], puedo establecer las
+  siguientes variables del sistema:
+
+  - ANDROID_SDK_ROOT=C:\Users\\...\AppData\Local\Android\Sdk
+
+  Hay varias, pero esa es la que establecí por el momento.
+
+[documentación oficial de Android Studio]: <https://developer.android.com/studio/command-line/variables?hl=es-419> "developers.android.com | Variables del entorno"
+
+## 1.3. **PROBLEMAS CON EL EMULADOR DE ANDROID**
+
+### 1.3.1. ***UNABLE TO START `adb server`***
 
 Me encontré con el siguiente problema:
 
@@ -34,7 +56,7 @@ Me encontré con el siguiente problema:
 
 ![Unable to create Debug Bridge: Unable to start adb server](SS_PROBLEMS/AndroidEmulatorProblem_UnableToCreate-Debug-Bridge.png "Unable to create Debug Bridge: Unable to start adb server")
 
-#### 1.2.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*
+#### 1.3.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*
 
 [Respuesta de "`Letsintegreat`": Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow](https://stackoverflow.com/a/49345049/13562806 "Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow")
 
@@ -62,12 +84,12 @@ Me encontré con el siguiente problema:
 
 5. **Vuelve a abrir *Android Studio*.**
 
-##### 1.2.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**
+##### 1.3.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**
 
 ![EMULADOR CARGANDO | Pixel 2 - Android 8.1 (Oreo)](SS_PROGRESS/ANDROID-EMULATOR_FIRST-TIME-WORKING_Sa_May_1st_2021.png "EMULADOR CARGANDO | Pixel 2 - Android 8.1 (Oreo)")
 ![EMULADOR CORRIENDO POR PRIMERA VEZ | Pixel 2 - Android 8.1 (Oreo)](SS_PROGRESS/ANDROID-EMULATOR_FIRST-TIME-WORKING_2_Sa_May_1st_2021.png "EMULADOR CORRIENDO POR PRIMERA VEZ | Pixel 2 - Android 8.1 (Oreo)")
 
-### 1.2.2. ***PROBLEMA CON `adb.exe`***
+### 1.3.2. ***PROBLEMA CON `adb.exe`***
 
 Me salió un mensaje cuando quise iniciar el emulador. Ya van varias veces que
 intento iniciarlo, pero me dice que no encuentra el `adb.exe` y que no se puede
@@ -78,7 +100,7 @@ Después, me salió una imagen con un error:
 
 ![adb.exe es obsoleto. Deberá ser actualizado.](SS_PROBLEMS/PROBLEM-ANDROID_EMULATOR_ADB.png "adb.exe es obsoleto. Deberá ser actualizado.")
 
-#### 1.2.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**
+#### 1.3.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**
 
 > > Encontré una solución en Stack Overflow, pero aún no sé si funcione. La tendré
 > > que probar. Por ahora, este es el enlace de dicha solución:
@@ -104,7 +126,7 @@ Después, me salió una imagen con un error:
 > 10. Uncheck (quita el palomeado) el campo de "***`Show Package Details`***" y revisa que en el campo "***`Android SDK Build-Tools`***" (primera línea) indique que no hay una actualización disponible, es decir, que diga "**`Installed`**".
 > 11. Da click en "**`OK`**" para cerrar el "***`SDK Manager`***".
 
-## 1.3. **LINTER**
+## 1.4. **LINTER**
 
 Yo utilicé el siguiente linter:
 
@@ -119,7 +141,7 @@ Yo utilicé el siguiente linter:
 > [`package:pedantic`](https://github.com/google/pedantic
 > "https://github.com/google/pedantic") for those who prefer stricter rules".
 
-### 1.3.1. **CÓMO HACERLO FUNCIONAR**
+### 1.4.1. **CÓMO HACERLO FUNCIONAR**
 
 1. Hay que **agregarlo a 2 archivos** en primera instancia:
 
@@ -256,7 +278,7 @@ Yo utilicé el siguiente linter:
     de las reglas que hayas establecido. Si no modificaste las reglas, entonces
     te mostrará los errores dependiendo de las reglas del paquete base.
 
-### 1.3.2. **ENLACES**
+### 1.4.2. **ENLACES**
 
 > - [Lint for Dart/Flutter <- El Linter que yo utilicé]
 > - [Linter for Dart: Supported Lint Rules](https://dart-lang.github.io/linter/lints/index.html "Supported Dart Lint Rules")
@@ -264,13 +286,13 @@ Yo utilicé el siguiente linter:
 
 [Lint for Dart/Flutter <- El Linter que yo utilicé]: <https://pub.dev/packages/lint> "El Linter que yo utilicé"
 
-## 1.4. FUENTES DE APOYO VARIAS
+## 1.5. FUENTES DE APOYO VARIAS
 
 - [VIDEO YouTube | Init | "Curso de Flutter Desde Cero App Clon de Netflix" | 19 jun. 2020](https://www.youtube.com/watch?v=vX_iJVLKU6w&t=3885s&ab_channel=Init "VIDEO YouTube | Init | \"Curso de Flutter Desde Cero App Clon de Netflix\"")
 - [VIDEO YouTube | Johannes Milke | "Flutter Tutorial - Safe Area VS AppBar - Android & iOS" | 31 mar. 2021](https://www.youtube.com/watch?v=4O16fHaJc7E&list=PLg8w9DGA17RsDtJYQY2MRvl8mqIn7IWIq&index=3&ab_channel=JohannesMilke "VIDEO YouTube | Johannes Milke | \"Flutter Tutorial - Safe Area VS AppBar - Android & iOS\"")
 - [VIDEO YouTube | EXPLICACIÓN  BuildContext context | Coding with Glove | Understanding BuildContext in Flutter | 10 ene. 2020](https://www.youtube.com/watch?v=MFNe7hdOCVs&list=PLg8w9DGA17RsDtJYQY2MRvl8mqIn7IWIq&index=6&ab_channel=CodingwithGlove "VIDEO YouTube | EXPLICACIÓN  BuildContext context")
 
-## 1.5. *Getting Started <- Venía por default al crear el proyecto*
+## 1.6. *Getting Started <- Venía por default al crear el proyecto*
 
 This project is a starting point for a Flutter application.
 
