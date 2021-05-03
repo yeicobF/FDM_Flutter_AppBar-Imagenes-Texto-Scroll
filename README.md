@@ -1,22 +1,26 @@
-# 1. [T2.2] MAQUETA CON APPBAR, IMÁGENES, TEXTO Y SCROLL
+# [T2.2] MAQUETA CON APPBAR, IMÁGENES, TEXTO Y SCROLL
 
 Maquetación para la segunda tarea del 2do parcial de FDM, en el que estamos
 trabajando con Flutter. Hay que hacer la maquetación que nos dijo el profesor,
 la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
 - [1.1. ***FECHA DE ENCARGO***](#11-fecha-de-encargo)
-- [1.2. VARIABLES DE USUARIO](#12-variables-de-usuario)
-- [1.3. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#13-problemas-con-el-emulador-de-android)
-  - [1.3.1. ***UNABLE TO START `adb server`***](#131-unable-to-start-adb-server)
-    - [1.3.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1311-solución-de-stack-overflow---funcionó-correctamente)
-      - [1.3.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**](#13111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
-  - [1.3.2. ***PROBLEMA CON `adb.exe`***](#132-problema-con-adbexe)
-    - [1.3.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1321-pasos-para-la-solución-del-problema-de-stack-oveflow)
-- [1.4. **LINTER**](#14-linter)
-  - [1.4.1. **CÓMO HACERLO FUNCIONAR**](#141-cómo-hacerlo-funcionar)
-  - [1.4.2. **ENLACES**](#142-enlaces)
-- [1.5. FUENTES DE APOYO VARIAS](#15-fuentes-de-apoyo-varias)
-- [1.6. *Getting Started <- Venía por default al crear el proyecto*](#16-getting-started---venía-por-default-al-crear-el-proyecto)
+- [1.2. **RESULTADO FINAL**](#12-resultado-final)
+  - [1.2.1. ***CÓMO TOMÉ LAS SCREENSHOT***](#121-cómo-tomé-las-screenshot)
+- [1.3. CÓMO TOMAR VIDEO](#13-cómo-tomar-video)
+- [1.4. **VARIABLES DE USUARIO**](#14-variables-de-usuario)
+- [1.5. ME TARDABA MUCHO EN INICIAR LA APP EN EL CELULAR](#15-me-tardaba-mucho-en-iniciar-la-app-en-el-celular)
+- [1.6. **PROBLEMAS CON EL EMULADOR DE ANDROID**](#16-problemas-con-el-emulador-de-android)
+  - [1.6.1. ***UNABLE TO START `adb server`***](#161-unable-to-start-adb-server)
+    - [1.6.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*](#1611-solución-de-stack-overflow---funcionó-correctamente)
+      - [1.6.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**](#16111-finalmente-después-de-muchos-días-e-intentos-fallidos-corrió-el-emulador)
+  - [1.6.2. ***PROBLEMA CON `adb.exe`***](#162-problema-con-adbexe)
+    - [1.6.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**](#1621-pasos-para-la-solución-del-problema-de-stack-oveflow)
+- [1.7. **LINTER**](#17-linter)
+  - [1.7.1. **CÓMO HACERLO FUNCIONAR**](#171-cómo-hacerlo-funcionar)
+  - [1.7.2. **ENLACES**](#172-enlaces)
+- [1.8. FUENTES DE APOYO VARIAS](#18-fuentes-de-apoyo-varias)
+- [1.9. *Getting Started <- Venía por default al crear el proyecto*](#19-getting-started---venía-por-default-al-crear-el-proyecto)
 
 ## 1.1. ***FECHA DE ENCARGO***
 
@@ -54,7 +58,7 @@ donde quiero guardar las screenshot y , ejecutando el siguiente comando:
 
 ## 1.3. CÓMO TOMAR VIDEO
 
-El video que tomé salió corrupto, pero se supone que es con el siguiente comando
+**El video que tomé salió corrupto**, pero se supone que es con el siguiente comando
 dentro de la carpeta en donde lo quieres:
 
 > ```properties
@@ -63,7 +67,7 @@ dentro de la carpeta en donde lo quieres:
 
 ## 1.4. **VARIABLES DE USUARIO**
 
-- ### ***ANDROID_HOME***
+- ### ***ANDROID_HOME <- Ya no debe ser utilizada***
 
   Había establecido esta variable de usuario, pero según la [documentación
   oficial de Android Studio], esta variable ya no está disponible:
@@ -90,7 +94,7 @@ Ejecuté los siguientes comandos y volví a construir la App y ya funcionó:
   
   1. Desde la carpeta del proyecto accede a `android`:
 
-    > cd android
+    > `cd android`
 
   2. Ejecutar el siguiente comando:
 
