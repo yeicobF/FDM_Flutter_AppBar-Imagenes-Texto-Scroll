@@ -84,15 +84,18 @@ class MyApp extends StatelessWidget {
             displayWidgetsInOrder.add(displayExpandedImage(index));
           }
           return
-            Row(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: <Widget>[
-                // Muestra una imagen dependiendo del índice que se envíe.
-                // Dependiendo de cómo se hayan guardado los valores en la
-                // lista, se muestran en ese orden guardado.
-                displayWidgetsInOrder[0],
-                displayWidgetsInOrder[1],
-              ],
+            Container(
+              color: Colors.black,
+              child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: <Widget>[
+                  // Muestra una imagen dependiendo del índice que se envíe.
+                  // Dependiendo de cómo se hayan guardado los valores en la
+                  // lista, se muestran en ese orden guardado.
+                  displayWidgetsInOrder[0],
+                  displayWidgetsInOrder[1],
+                ],
+              )
             );
         }
       );
@@ -116,35 +119,39 @@ class MyApp extends StatelessWidget {
           index = index % images.length;
           return
             // Regresamos una columna con todos los elementos.
-            // Row(
-            //   children: <Widget>[
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              // size,
+            Row(
               children: <Widget>[
+            // Column(
+            //   mainAxisSize: MainAxisSize.min,
+            //   // size,
+            //   children: <Widget>[
                 Expanded(
                   child: Image(
                     fit: BoxFit.cover,
                     image: AssetImage(images[index]),
                   ),
                 ),
-                Expanded(
-                  child: Text(
-                    // Mostrar la ruta relativa de las imágenes.
-                    images[index],
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.deepOrange[400],
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.0,
-                      // backgroundColor: Colors.grey[200],
-                    ),
-                  ),
-                ),
+              // ESTO DE ABAJO PONE TEXTO A LA DERECHA DE LAS IMÁGENES, PERO YO
+              // LO QUERÍA TENER ABAJO, SOLO QUE NO PUDE HACERLO CON COLUMN Y YA
+              // NO DUPE CÓMO HACERLO.
+
+                // Expanded(
+                //   child: Text(
+                //     // Mostrar la ruta relativa de las imágenes.
+                //     images[index],
+                //     textAlign: TextAlign.center,
+                //     style: TextStyle(
+                //       color: Colors.deepOrange[400],
+                //       fontWeight: FontWeight.w600,
+                //       fontSize: 15.0,
+                //       // backgroundColor: Colors.grey[200],
+                //     ),
+                //   ),
+                // ),
+            //   ],
+            // ),
               ],
             );
-            //   ],
-            // );
         }
       );
   }
@@ -168,7 +175,11 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("MAQUETACIÓN 2"),
+          centerTitle: true,
+          title: const Text(
+              "MAQUETACIÓN 2",
+              // textAlign: TextAlign.center,
+            ),
           backgroundColor: Colors.red,
         ),
         // SafeArea es para no utilizar área de la barra de notificaciones
@@ -187,23 +198,30 @@ class MyApp extends StatelessWidget {
           //     scrollableImages(20),
           
 
-          child: Container(
-            width: double.infinity,
-            child: Column(
-              children: <Widget>[
-                // Container(
-                  // Se muestran las 3 imágenes con sus textos en el orden deseados.
-                  // child: 
-                  displayImagesAndText(),
-                // ),
-                // Container(
-                  // child: 
-                  scrollableImages(7),
-                // ),
-              ],
-
-            ),
+          // child: Container(
+          //   width: double.infinity,
+          child: Column(
+            // verticalDirection: VerticalDirection.up,
+            mainAxisSize: MainAxisSize.min,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              // Me agrega espacio que no quiero debajo de este Widget.
+              // Quisiera quitarlo.
+              // Padding
+              Flexible(
+                // width: double.infinity,
+                // fit: BoxFit.fitHeight,
+                //   Se muestran las 3 imágenes con sus textos en el orden deseados.
+                // fit: FlexFit.tight,
+                child: displayImagesAndText(),
+              ),
+              Flexible(
+                // fit: FlexFit.tight,
+                child: scrollableImages(7),
+              ),
+            ],
           ),
+          // ),
           
         ),
       ),
