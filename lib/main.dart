@@ -107,6 +107,8 @@ class MyApp extends StatelessWidget {
       ListView.builder(
         scrollDirection: Axis.vertical,
         itemCount: numberOfImages,
+        
+        
         itemBuilder: (_, index) {
           // Hay que reiniciar el índice si se pasa del número de elementos.
           // El índice irá avanzando, y cuando el index == total de impagenes,
@@ -114,23 +116,27 @@ class MyApp extends StatelessWidget {
           index = index % images.length;
           return
             // Regresamos una columna con todos los elementos.
-            Column(
+            Row(
               children: <Widget>[
-                Image(
-                  fit: BoxFit.cover,
-                  image: AssetImage(images[index]),
-                ),
-                Text(
-                  // Mostrar la ruta relativa de las imágenes.
-                  images[index],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.deepOrange[400],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
-                    backgroundColor: Colors.grey[200],
+                Expanded(
+                  child: Image(
+                    fit: BoxFit.cover,
+                    image: AssetImage(images[index]),
                   ),
                 ),
+                Expanded(
+                  child: Text(
+                    // Mostrar la ruta relativa de las imágenes.
+                    images[index],
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.deepOrange[400],
+                      fontWeight: FontWeight.w600,
+                      fontSize: 22.0,
+                      backgroundColor: Colors.grey[200],
+                    ),
+                  ),
+                )
               ],
             );
         }
@@ -170,13 +176,18 @@ class MyApp extends StatelessWidget {
           // 
           // - Con un Column dentro del SafeArea se puede poner más de un
           // Widget.
-          child: Column(
-            children: <Widget>[
-              // Se muestran las 3 imágenes con sus textos en el orden deseados.
-              displayImagesAndText(),
-              scrollableImages(7),
-            ],
-          ),
+         
+          child: 
+              scrollableImages(20),
+          
+
+          // child: Column(
+          //   children: <Widget>[
+          //     // Se muestran las 3 imágenes con sus textos en el orden deseados.
+          //     displayImagesAndText(),
+          //     scrollableImages(7),
+          //   ],
+          // ),
         ),
       ),
     );
