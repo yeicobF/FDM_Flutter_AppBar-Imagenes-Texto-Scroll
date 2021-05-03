@@ -94,13 +94,29 @@ class MyApp extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: 3,
             itemBuilder: (_, index) {
+              // Lista con los widgets que se mostrarán en orden.
+              // Esto es para mostrar la imagen y después el texto, dependiendo
+              // del índice actual.
+              final List<Widget> displayWidgetsInOrder = [];
+              if (index == 0 || (index % 2 == 0)) {
+                // Guardar imagen, luego texto.
+                displayWidgetsInOrder.add(displayExpandedImage(index));
+                displayWidgetsInOrder.add(displayImageText(index));
+              }
+              else {
+                // Guardar texto, luego imagen.
+                displayWidgetsInOrder.add(displayImageText(index));
+                displayWidgetsInOrder.add(displayExpandedImage(index));
+              }
               return
                 Row(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: <Widget>[
                     // Muestra una imagen dependiendo del índice que se envíe.
-                    displayExpandedImage(index),
-                    displayImageText(index),
+                    // Dependiendo de cómo se hayan guardado los valores en la
+                    // lista, se muestran en ese orden guardado.
+                    displayWidgetsInOrder[0],
+                    displayWidgetsInOrder[1],
                   ],
                 );
             }
