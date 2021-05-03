@@ -1,4 +1,5 @@
 import 'dart:core'; // List<tipo>
+import 'dart:math'; // Números random.
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,17 +7,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  
   // Lista de nombres de imágenes.
-  final List<String> images = [
-    "assets/img/scorpion-spidy-PS4.jpeg",
-    "assets/img/scorpion-spidy-PS4-FULL.jpg",
-    "assets/img/spiderman-volteando.jpg",
-    "assets/img/spiderman-analizando.jpg",
-    "assets/img/TLOU2-ciudad-en-llamas.png",
-    "assets/img/TLOU2-Ellie-bote-final.png",
-    "assets/img/TLOU2-Ellie-encima-de-dinosaurio-museo.png",
-    "assets/img/TLOU2-Ellie-Joel-jirafa-museo.png",
-  ];
+  List<String> images = [];
+
+  // Generar un número aleatorio dentro de un rango.
+  // https://stackoverflow.com/questions/11674820/how-do-i-generate-random-numbers-in-dart
+  int random(int min, int max){
+    final random = Random();
+    return min + random.nextInt(max - min);
+  }
 
   // Método para mostrar una imagen en pantalla. Se envía el índice de la imagen
   // a mostrar.
@@ -104,8 +104,8 @@ class MyApp extends StatelessWidget {
   // Mostrar una lista de imágenes con un texto que indique el nombre de la
   // imagen. Se manda el número de imágenes a generar. Esto para hacer un
   // scroll.
+  // - Si mandamos "null", se generarán imágenes de forma infinita.
   Widget scrollableImages(int numberOfImages) {
-
     return
       ListView.builder(
         scrollDirection: Axis.vertical,
@@ -113,10 +113,19 @@ class MyApp extends StatelessWidget {
         shrinkWrap: true,
         
         itemBuilder: (_, index) {
+          // Generamos un número de imagen aleatorio. No ponerlo aquí porque se
+          // estarán cambiando en tiempo real.
+          // final numberOfImage = random(0, images.length);
+
           // Hay que reiniciar el índice si se pasa del número de elementos.
           // El índice irá avanzando, y cuando el index == total de impagenes,
           // el índice será = 0. De esta forma avanza y se reinicia.
+          // - Esto es por si queremos imágenes secuenciales.
           index = index % images.length;
+
+          // Mejor generaré números aleatorios.
+          
+
           return
             // Regresamos una columna con todos los elementos.
             Row(
@@ -129,6 +138,7 @@ class MyApp extends StatelessWidget {
                   child: Image(
                     fit: BoxFit.cover,
                     image: AssetImage(images[index]),
+                    // image: AssetImage(images[numberOfImage]),
                   ),
                 ),
               // ESTO DE ABAJO PONE TEXTO A LA DERECHA DE LAS IMÁGENES, PERO YO
@@ -159,6 +169,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // Para que no se repitan elementos cada que reinicion la app.
+    images.clear();
+    images = [
+    "assets/img/scorpion-spidy-PS4.jpeg",
+    "assets/img/scorpion-spidy-PS4-FULL.jpg",
+    "assets/img/spiderman-volteando.jpg",
+    "assets/img/spiderman-analizando.jpg",
+    "assets/img/TLOU2-ciudad-en-llamas.png",
+    "assets/img/TLOU2-Ellie-bote-final.png",
+    "assets/img/TLOU2-Ellie-encima-de-dinosaurio-museo.png",
+    "assets/img/TLOU2-Ellie-Joel-jirafa-museo.png",
+  ];
+    // AGREGAR LAS IMÁGENES DE GOW.
+    for (int i = 0; i < 8; i++) {
+      images.add("assets/img/gow-$i.jpg");
+    }
     return MaterialApp(
       title: 'FDM - MAQUETACIÓN 2',
       theme: ThemeData(
@@ -217,7 +243,7 @@ class MyApp extends StatelessWidget {
               ),
               Flexible(
                 // fit: FlexFit.tight,
-                child: scrollableImages(7),
+                child: scrollableImages(50),
               ),
             ],
           ),
