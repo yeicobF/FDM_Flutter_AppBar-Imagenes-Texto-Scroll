@@ -1,3 +1,4 @@
+import 'dart:core'; // List<tipo>
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,6 +9,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final List<String> images = [
+      "assets/img/scorpion-spidy-PS4.jpeg",
+      "assets/img/scorpion-spidy-PS4-FULL.jpg",
+      "assets/img/TLOU2-Ellie-bote-final.png",
+    ];
+    final List<String> textArray = [
+      "Scorpion, spidy",
+      "Spidy, scorpion",
+      "Ellie",
+    ];
     return MaterialApp(
       title: 'FDM - MAQUETACIÓN 2',
       theme: ThemeData(
@@ -28,6 +39,12 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.red,
         ),
         body: SafeArea(
+          // PARA QUE SE PUEDAN CREAR n OBJETOS DE LA LISTA.
+          // No permite que se reordenen los objetos de la lista. Para esto
+          // habría que utilizar una de las 2 siguientes opciones:
+          //  - ListView
+          //  - ListView.custom
+          // 
           child: ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: 3,
@@ -36,11 +53,24 @@ class MyApp extends StatelessWidget {
                 Row(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: <Widget>[
-                    const Image(
-                      image: AssetImage("assets/img/scorpion-spidy-PS4.jpeg"),
+                    // Con "Expanded" se toma todo el tamaño disponible de la
+                    // pantalla, por lo que se dividirá mitad y mitad entre el
+                    // texto y la imagen.
+                    Expanded(
+                      // flex: 1,
+                      child: Image(
+                        fit: BoxFit.cover,
+                        // Se generan itemCount imágenes.
+                        image: AssetImage(images[index]),
+                        // alignment: AxisDirection.left,
+                      ),
                     ),
-                    const Text(
-                        "hola"
+                    Expanded(
+                      // flex: 1,
+                      child: Text(
+                        // Se generan itemCount textos.
+                        textArray[index],
+                      ),
                     ),
                   ],
                 );
