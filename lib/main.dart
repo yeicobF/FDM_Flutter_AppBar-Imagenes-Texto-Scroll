@@ -6,19 +6,62 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
+  // Método para mostrar una imagen en pantalla. Se envía el índice de la imagen
+  // a mostrar.
+  Widget displayExpandedImage(int imageIndex) {
     final List<String> images = [
       "assets/img/scorpion-spidy-PS4.jpeg",
       "assets/img/scorpion-spidy-PS4-FULL.jpg",
+      "assets/img/spiderman-volteando.jpg",
+      "assets/img/spiderman-analizando.jpg",
+      "assets/img/TLOU2-ciudad-en-llamas.png",
       "assets/img/TLOU2-Ellie-bote-final.png",
+      "assets/img/TLOU2-Ellie-encima-de-dinosaurio-museo.png",
+      "assets/img/TLOU2-Ellie-Joel-jirafa-museo.png",
     ];
+
+    return 
+      // Con "Expanded" se toma todo el tamaño disponible de la
+      // pantalla, por lo que se dividirá mitad y mitad entre el
+      // texto y la imagen.
+      Expanded(
+        // flex: 1,
+        child: Image(
+          fit: BoxFit.cover,
+          // Se generan itemCount imágenes.
+          image: AssetImage(images[imageIndex]),
+          // alignment: AxisDirection.left,
+        ),
+      );
+
+  }
+
+  // Mostrar un texto dependiendo del índice.
+  Widget displayImageText(int textIndex) {
     final List<String> textArray = [
-      "Scorpion, spidy",
+      "Scorpion mural",
       "Spidy, scorpion",
-      "Ellie",
+      "Spidy",
     ];
+    return
+      Expanded(
+        // flex: 1,
+        child: Text(
+          // Se generan itemCount textos.
+          textArray[textIndex],
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.cyanAccent[700],
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
+          ),
+        ),
+      );
+  }
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FDM - MAQUETACIÓN 2',
       theme: ThemeData(
@@ -38,6 +81,8 @@ class MyApp extends StatelessWidget {
           title: const Text("MAQUETACIÓN 2"),
           backgroundColor: Colors.red,
         ),
+        // SafeArea es para no utilizar área de la barra de notificaciones
+        // o del área inferior.
         body: SafeArea(
           // PARA QUE SE PUEDAN CREAR n OBJETOS DE LA LISTA.
           // No permite que se reordenen los objetos de la lista. Para esto
@@ -53,25 +98,9 @@ class MyApp extends StatelessWidget {
                 Row(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: <Widget>[
-                    // Con "Expanded" se toma todo el tamaño disponible de la
-                    // pantalla, por lo que se dividirá mitad y mitad entre el
-                    // texto y la imagen.
-                    Expanded(
-                      // flex: 1,
-                      child: Image(
-                        fit: BoxFit.cover,
-                        // Se generan itemCount imágenes.
-                        image: AssetImage(images[index]),
-                        // alignment: AxisDirection.left,
-                      ),
-                    ),
-                    Expanded(
-                      // flex: 1,
-                      child: Text(
-                        // Se generan itemCount textos.
-                        textArray[index],
-                      ),
-                    ),
+                    // Muestra una imagen dependiendo del índice que se envíe.
+                    displayExpandedImage(index),
+                    displayImageText(index),
                   ],
                 );
             }
