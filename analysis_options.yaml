@@ -4,6 +4,3 @@
 # https://pub.dev/packages/lint
 
 include: package:lint/analysis_options.yaml
-
-linter:
-  rules:

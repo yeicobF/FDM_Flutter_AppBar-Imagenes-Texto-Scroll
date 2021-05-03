@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FDM - MAQUETACIÓN 2',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -23,6 +23,30 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+        appBar: AppBar(
+          title: const Text("MAQUETACIÓN 2"),
+          backgroundColor: Colors.red,
+        ),
+        body: SafeArea(
+          child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: 3,
+            itemBuilder: (_, index) {
+              return
+                Row(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: <Widget>[
+                    const Image(
+                      image: AssetImage("assets/img/scorpion-spidy-PS4.jpeg"),
+                    ),
+                    const Text(
+                        "hola"
+                    ),
+                  ],
+                );
+            }
+          ),
+        ),
       ),
     );
   }
