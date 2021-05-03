@@ -22,7 +22,46 @@ la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
 > Martes, 27 ABRIL 2021
 
-## 1.2. **VARIABLES DE USUARIO**
+## 1.2. **RESULTADO FINAL**
+
+![Pantalla inicial](SS_VIDEO_APP_FINAL/ss/pantalla-inicial.png "Pantalla inicial")
+![Scroll abajo 1](SS_VIDEO_APP_FINAL/ss/scroll-abajo-1.png "Scroll abajo 1")
+![Scroll abajo 2](SS_VIDEO_APP_FINAL/ss/scroll-abajo-2.png "Scroll abajo 2")
+![Scroll abajo 3](SS_VIDEO_APP_FINAL/ss/scroll-abajo-3.png "Scroll abajo 3")
+
+Tuve problemas con la parte de esa separación que se ve entre los dos elementos
+en la pantalla. Creo que eso pasa por utilizar el Flexible en el Column, pero no
+estoy seguro.
+
+También quería que se viera un texto debajo de cada una de las imágenes, pero no
+lo logré porque no pude mostrar los elementos como Column dentro del
+`ListView.builder`, ya que solo se veía blanca la pantalla.
+
+### 1.2.1. ***CÓMO TOMÉ LAS SCREENSHOT***
+
+Los pasos los obtuve desde unos ***issues de GitHub***:
+
+- [Genymobile/scrcpy | Screenshot/Record Screen #21](https://github.com/Genymobile/scrcpy/issues/21 "Genymobile/scrcpy | Screenshot/Record Screen #21")
+- [Genymobile/scrcpy | Support screen recording #116](https://github.com/Genymobile/scrcpy/issues/116 "Genymobile/scrcpy | Support screen recording #116")
+
+Las screenshot las tomé abriendo el programa `scrcpy`, yendo a la carpeta en
+donde quiero guardar las screenshot y , ejecutando el siguiente comando:
+
+> ```properties
+> cd carpeta-screenshots
+> adb exec-out screencap -p > nombre.png
+> ```
+
+## 1.3. CÓMO TOMAR VIDEO
+
+El video que tomé salió corrupto, pero se supone que es con el siguiente comando
+dentro de la carpeta en donde lo quieres:
+
+> ```properties
+> scrcpy --record file.mp4
+> ```
+
+## 1.4. **VARIABLES DE USUARIO**
 
 - ### ***ANDROID_HOME***
 
@@ -43,9 +82,36 @@ la cual deberá contener: Imágenes, texto y un scroll con diversos elementos.
 
 [documentación oficial de Android Studio]: <https://developer.android.com/studio/command-line/variables?hl=es-419> "developers.android.com | Variables del entorno"
 
-## 1.3. **PROBLEMAS CON EL EMULADOR DE ANDROID**
+## 1.5. ME TARDABA MUCHO EN INICIAR LA APP EN EL CELULAR
 
-### 1.3.1. ***UNABLE TO START `adb server`***
+Ejecuté los siguientes comandos y volví a construir la App y ya funcionó:
+
+- `./gradlew clean build`:
+  
+  1. Desde la carpeta del proyecto accede a `android`:
+
+    > cd android
+
+  2. Ejecutar el siguiente comando:
+
+    > ```properties
+    > ./gradlew clean build
+    >```
+    >
+    > **`NOTA`**: Este proceso puede tardar mucho. En mi caso tardó 39 minutos en
+    > llegar al 100%.
+
+- Aceptar licencias de Android:
+
+  1. Ejecuta el siguiente comando:
+
+    > ```properties
+    > flutter doctor --android-licenses
+    > ```
+
+## 1.6. **PROBLEMAS CON EL EMULADOR DE ANDROID**
+
+### 1.6.1. ***UNABLE TO START `adb server`***
 
 Me encontré con el siguiente problema:
 
@@ -56,7 +122,7 @@ Me encontré con el siguiente problema:
 
 ![Unable to create Debug Bridge: Unable to start adb server](SS_PROBLEMS/AndroidEmulatorProblem_UnableToCreate-Debug-Bridge.png "Unable to create Debug Bridge: Unable to start adb server")
 
-#### 1.3.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*
+#### 1.6.1.1. **SOLUCIÓN DE STACK OVERFLOW <- FUNCIONÓ CORRECTAMENTE*
 
 [Respuesta de "`Letsintegreat`": Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow](https://stackoverflow.com/a/49345049/13562806 "Error initializing ADB: Unable to create Debug Bridge: Unable to start ADB server | Stack Overflow")
 
@@ -84,12 +150,12 @@ Me encontré con el siguiente problema:
 
 5. **Vuelve a abrir *Android Studio*.**
 
-##### 1.3.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**
+##### 1.6.1.1.1. **FINALMENTE, DESPUÉS DE MUCHOS DÍAS E INTENTOS FALLIDOS, CORRIÓ EL EMULADOR**
 
 ![EMULADOR CARGANDO | Pixel 2 - Android 8.1 (Oreo)](SS_PROGRESS/ANDROID-EMULATOR_FIRST-TIME-WORKING_Sa_May_1st_2021.png "EMULADOR CARGANDO | Pixel 2 - Android 8.1 (Oreo)")
 ![EMULADOR CORRIENDO POR PRIMERA VEZ | Pixel 2 - Android 8.1 (Oreo)](SS_PROGRESS/ANDROID-EMULATOR_FIRST-TIME-WORKING_2_Sa_May_1st_2021.png "EMULADOR CORRIENDO POR PRIMERA VEZ | Pixel 2 - Android 8.1 (Oreo)")
 
-### 1.3.2. ***PROBLEMA CON `adb.exe`***
+### 1.6.2. ***PROBLEMA CON `adb.exe`***
 
 Me salió un mensaje cuando quise iniciar el emulador. Ya van varias veces que
 intento iniciarlo, pero me dice que no encuentra el `adb.exe` y que no se puede
@@ -100,7 +166,7 @@ Después, me salió una imagen con un error:
 
 ![adb.exe es obsoleto. Deberá ser actualizado.](SS_PROBLEMS/PROBLEM-ANDROID_EMULATOR_ADB.png "adb.exe es obsoleto. Deberá ser actualizado.")
 
-#### 1.3.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**
+#### 1.6.2.1. **PASOS PARA LA SOLUCIÓN DEL PROBLEMA (DE STACK OVEFLOW)**
 
 > > Encontré una solución en Stack Overflow, pero aún no sé si funcione. La tendré
 > > que probar. Por ahora, este es el enlace de dicha solución:
@@ -126,7 +192,7 @@ Después, me salió una imagen con un error:
 > 10. Uncheck (quita el palomeado) el campo de "***`Show Package Details`***" y revisa que en el campo "***`Android SDK Build-Tools`***" (primera línea) indique que no hay una actualización disponible, es decir, que diga "**`Installed`**".
 > 11. Da click en "**`OK`**" para cerrar el "***`SDK Manager`***".
 
-## 1.4. **LINTER**
+## 1.7. **LINTER**
 
 Yo utilicé el siguiente linter:
 
@@ -141,7 +207,7 @@ Yo utilicé el siguiente linter:
 > [`package:pedantic`](https://github.com/google/pedantic
 > "https://github.com/google/pedantic") for those who prefer stricter rules".
 
-### 1.4.1. **CÓMO HACERLO FUNCIONAR**
+### 1.7.1. **CÓMO HACERLO FUNCIONAR**
 
 1. Hay que **agregarlo a 2 archivos** en primera instancia:
 
@@ -278,7 +344,7 @@ Yo utilicé el siguiente linter:
     de las reglas que hayas establecido. Si no modificaste las reglas, entonces
     te mostrará los errores dependiendo de las reglas del paquete base.
 
-### 1.4.2. **ENLACES**
+### 1.7.2. **ENLACES**
 
 > - [Lint for Dart/Flutter <- El Linter que yo utilicé]
 > - [Linter for Dart: Supported Lint Rules](https://dart-lang.github.io/linter/lints/index.html "Supported Dart Lint Rules")
@@ -286,13 +352,13 @@ Yo utilicé el siguiente linter:
 
 [Lint for Dart/Flutter <- El Linter que yo utilicé]: <https://pub.dev/packages/lint> "El Linter que yo utilicé"
 
-## 1.5. FUENTES DE APOYO VARIAS
+## 1.8. FUENTES DE APOYO VARIAS
 
 - [VIDEO YouTube | Init | "Curso de Flutter Desde Cero App Clon de Netflix" | 19 jun. 2020](https://www.youtube.com/watch?v=vX_iJVLKU6w&t=3885s&ab_channel=Init "VIDEO YouTube | Init | \"Curso de Flutter Desde Cero App Clon de Netflix\"")
 - [VIDEO YouTube | Johannes Milke | "Flutter Tutorial - Safe Area VS AppBar - Android & iOS" | 31 mar. 2021](https://www.youtube.com/watch?v=4O16fHaJc7E&list=PLg8w9DGA17RsDtJYQY2MRvl8mqIn7IWIq&index=3&ab_channel=JohannesMilke "VIDEO YouTube | Johannes Milke | \"Flutter Tutorial - Safe Area VS AppBar - Android & iOS\"")
 - [VIDEO YouTube | EXPLICACIÓN  BuildContext context | Coding with Glove | Understanding BuildContext in Flutter | 10 ene. 2020](https://www.youtube.com/watch?v=MFNe7hdOCVs&list=PLg8w9DGA17RsDtJYQY2MRvl8mqIn7IWIq&index=6&ab_channel=CodingwithGlove "VIDEO YouTube | EXPLICACIÓN  BuildContext context")
 
-## 1.6. *Getting Started <- Venía por default al crear el proyecto*
+## 1.9. *Getting Started <- Venía por default al crear el proyecto*
 
 This project is a starting point for a Flutter application.
 
