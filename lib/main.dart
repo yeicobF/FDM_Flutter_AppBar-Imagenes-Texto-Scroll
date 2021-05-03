@@ -107,7 +107,7 @@ class MyApp extends StatelessWidget {
       ListView.builder(
         scrollDirection: Axis.vertical,
         itemCount: numberOfImages,
-        
+        shrinkWrap: true,
         
         itemBuilder: (_, index) {
           // Hay que reiniciar el índice si se pasa del número de elementos.
@@ -116,7 +116,11 @@ class MyApp extends StatelessWidget {
           index = index % images.length;
           return
             // Regresamos una columna con todos los elementos.
-            Row(
+            // Row(
+            //   children: <Widget>[
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              // size,
               children: <Widget>[
                 Expanded(
                   child: Image(
@@ -132,13 +136,15 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.deepOrange[400],
                       fontWeight: FontWeight.w600,
-                      fontSize: 22.0,
-                      backgroundColor: Colors.grey[200],
+                      fontSize: 15.0,
+                      // backgroundColor: Colors.grey[200],
                     ),
                   ),
-                )
+                ),
               ],
             );
+            //   ],
+            // );
         }
       );
   }
@@ -177,17 +183,28 @@ class MyApp extends StatelessWidget {
           // - Con un Column dentro del SafeArea se puede poner más de un
           // Widget.
          
-          child: 
-              scrollableImages(20),
+          // child: 
+          //     scrollableImages(20),
           
 
-          // child: Column(
-          //   children: <Widget>[
-          //     // Se muestran las 3 imágenes con sus textos en el orden deseados.
-          //     displayImagesAndText(),
-          //     scrollableImages(7),
-          //   ],
-          // ),
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              children: <Widget>[
+                // Container(
+                  // Se muestran las 3 imágenes con sus textos en el orden deseados.
+                  // child: 
+                  displayImagesAndText(),
+                // ),
+                // Container(
+                  // child: 
+                  scrollableImages(7),
+                // ),
+              ],
+
+            ),
+          ),
+          
         ),
       ),
     );
