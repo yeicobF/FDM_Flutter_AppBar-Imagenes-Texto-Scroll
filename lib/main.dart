@@ -6,20 +6,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  // Lista de nombres de imágenes.
+  final List<String> images = [
+    "assets/img/scorpion-spidy-PS4.jpeg",
+    "assets/img/scorpion-spidy-PS4-FULL.jpg",
+    "assets/img/spiderman-volteando.jpg",
+    "assets/img/spiderman-analizando.jpg",
+    "assets/img/TLOU2-ciudad-en-llamas.png",
+    "assets/img/TLOU2-Ellie-bote-final.png",
+    "assets/img/TLOU2-Ellie-encima-de-dinosaurio-museo.png",
+    "assets/img/TLOU2-Ellie-Joel-jirafa-museo.png",
+  ];
+
   // Método para mostrar una imagen en pantalla. Se envía el índice de la imagen
   // a mostrar.
   Widget displayExpandedImage(int imageIndex) {
-    final List<String> images = [
-      "assets/img/scorpion-spidy-PS4.jpeg",
-      "assets/img/scorpion-spidy-PS4-FULL.jpg",
-      "assets/img/spiderman-volteando.jpg",
-      "assets/img/spiderman-analizando.jpg",
-      "assets/img/TLOU2-ciudad-en-llamas.png",
-      "assets/img/TLOU2-Ellie-bote-final.png",
-      "assets/img/TLOU2-Ellie-encima-de-dinosaurio-museo.png",
-      "assets/img/TLOU2-Ellie-Joel-jirafa-museo.png",
-    ];
-
     return 
       // Con "Expanded" se toma todo el tamaño disponible de la
       // pantalla, por lo que se dividirá mitad y mitad entre el
@@ -59,6 +60,83 @@ class MyApp extends StatelessWidget {
       );
   }
 
+  // Método para mostrar las primeras 3 imágenes y sus textos.
+  // Se utiliza un ListView.builder para en caso de que se requiera hacer un
+  // scroll.
+  Widget displayImagesAndText() {
+    return
+      ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: 3,
+        itemBuilder: (_, index) {
+          // Lista con los widgets que se mostrarán en orden.
+          // Esto es para mostrar la imagen y después el texto, dependiendo
+          // del índice actual.
+          final List<Widget> displayWidgetsInOrder = [];
+          if (index == 0 || (index % 2 == 0)) {
+            // Guardar imagen, luego texto.
+            displayWidgetsInOrder.add(displayExpandedImage(index));
+            displayWidgetsInOrder.add(displayImageText(index));
+          }
+          else {
+            // Guardar texto, luego imagen.
+            displayWidgetsInOrder.add(displayImageText(index));
+            displayWidgetsInOrder.add(displayExpandedImage(index));
+          }
+          return
+            Row(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: <Widget>[
+                // Muestra una imagen dependiendo del índice que se envíe.
+                // Dependiendo de cómo se hayan guardado los valores en la
+                // lista, se muestran en ese orden guardado.
+                displayWidgetsInOrder[0],
+                displayWidgetsInOrder[1],
+              ],
+            );
+        }
+      );
+  }
+
+  // Mostrar una lista de imágenes con un texto que indique el nombre de la
+  // imagen. Se manda el número de imágenes a generar. Esto para hacer un
+  // scroll.
+  Widget scrollableImages(int numberOfImages) {
+
+    return
+      ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: numberOfImages,
+        itemBuilder: (_, index) {
+          // Hay que reiniciar el índice si se pasa del número de elementos.
+          // El índice irá avanzando, y cuando el index == total de impagenes,
+          // el índice será = 0. De esta forma avanza y se reinicia.
+          index = index % images.length;
+          return
+            // Regresamos una columna con todos los elementos.
+            Column(
+              children: <Widget>[
+                Image(
+                  fit: BoxFit.cover,
+                  image: AssetImage(images[index]),
+                ),
+                Text(
+                  // Mostrar la ruta relativa de las imágenes.
+                  images[index],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.deepOrange[400],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.0,
+                    backgroundColor: Colors.grey[200],
+                  ),
+                ),
+              ],
+            );
+        }
+      );
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -90,36 +168,14 @@ class MyApp extends StatelessWidget {
           //  - ListView
           //  - ListView.custom
           // 
-          child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: 3,
-            itemBuilder: (_, index) {
-              // Lista con los widgets que se mostrarán en orden.
-              // Esto es para mostrar la imagen y después el texto, dependiendo
-              // del índice actual.
-              final List<Widget> displayWidgetsInOrder = [];
-              if (index == 0 || (index % 2 == 0)) {
-                // Guardar imagen, luego texto.
-                displayWidgetsInOrder.add(displayExpandedImage(index));
-                displayWidgetsInOrder.add(displayImageText(index));
-              }
-              else {
-                // Guardar texto, luego imagen.
-                displayWidgetsInOrder.add(displayImageText(index));
-                displayWidgetsInOrder.add(displayExpandedImage(index));
-              }
-              return
-                Row(
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: <Widget>[
-                    // Muestra una imagen dependiendo del índice que se envíe.
-                    // Dependiendo de cómo se hayan guardado los valores en la
-                    // lista, se muestran en ese orden guardado.
-                    displayWidgetsInOrder[0],
-                    displayWidgetsInOrder[1],
-                  ],
-                );
-            }
+          // - Con un Column dentro del SafeArea se puede poner más de un
+          // Widget.
+          child: Column(
+            children: <Widget>[
+              // Se muestran las 3 imágenes con sus textos en el orden deseados.
+              displayImagesAndText(),
+              scrollableImages(7),
+            ],
           ),
         ),
       ),
